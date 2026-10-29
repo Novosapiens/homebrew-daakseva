@@ -18,7 +18,16 @@ cask "daakseva" do
 
   app "Daakseva.app"
 
-  uninstall quit: "com.novosapiens.daakseva"
+  # Unregistered here, not in zap: zap runs after the app is gone, when lsregister -u does nothing.
+  uninstall quit:   "com.novosapiens.daakseva",
+            script: {
+              executable: "/bin/sh",
+              args:       ["-c", <<~SH],
+                LS=/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support
+                "$LS/lsregister" -u '/Applications/Daakseva.app' || true
+              SH
+              sudo:       false,
+            }
 
   # The same as the in-app uninstall (uninstall-list.json), plus what it does with macOS's tools.
   zap login_item: "Daakseva",
@@ -29,8 +38,6 @@ cask "daakseva" do
           security delete-generic-password -s 'Daakseva Safe Storage'
           defaults delete 'com.novosapiens.daakseva'
           tccutil reset All 'com.novosapiens.daakseva'
-          LS=/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support
-          "$LS/lsregister" -u '/Applications/Daakseva.app'
           true
         SH
         sudo:       false,

@@ -1,11 +1,11 @@
 cask "daakseva" do
-  version "2.0.0"
-  sha256 "d55bd5017c99e8bc625874fa5ecb73e5931cabf2311660fcacee509d07abb0ef"
+  version "2.0.1"
+  sha256 "d51a1ec6ece1d3d5666a7162851cbe257c96c4bfb4f9d207f694544c8a99c590"
 
-  url "https://github.com/yashsaxena/daakseva-releases/releases/download/v#{version}/Daakseva-#{version}-arm64.dmg"
+  url "https://github.com/Novosapiens/daakseva-releases/releases/download/v#{version}/Daakseva-#{version}-arm64.dmg"
   name "Daakseva"
   desc "Menu bar email client built on Mailspring"
-  homepage "https://github.com/yashsaxena/daakseva-releases"
+  homepage "https://github.com/Novosapiens/daakseva-releases"
 
   livecheck do
     url :url

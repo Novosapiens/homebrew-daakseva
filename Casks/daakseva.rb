@@ -1,6 +1,6 @@
 cask "daakseva" do
-  version "2.0.1"
-  sha256 "d51a1ec6ece1d3d5666a7162851cbe257c96c4bfb4f9d207f694544c8a99c590"
+  version "2.0.2"
+  sha256 "11e09706c5d0dea40f6655b789e791f6498f1d3d299f61cbacdde7ef99a5c2c7"
 
   url "https://github.com/Novosapiens/daakseva-releases/releases/download/v#{version}/Daakseva-#{version}-arm64.dmg"
   name "Daakseva"
